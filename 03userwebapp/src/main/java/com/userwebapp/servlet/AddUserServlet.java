@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,10 +26,14 @@ public class AddUserServlet extends HttpServlet {
         super();
     }
 
-    public void init() {
+    public void init(ServletConfig config) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection=DriverManager.getConnection("jdbc:mysql://localhost/mydb","root","root");
+			ServletContext context=config.getServletContext();
+			String dburl = context.getInitParameter("dburl");
+			String dbuser = context.getInitParameter("dbuser");
+			String dbpass = context.getInitParameter("dbpass");
+			connection=DriverManager.getConnection(dburl,dbuser,dbpass);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +51,8 @@ public class AddUserServlet extends HttpServlet {
 		String lastname=request.getParameter("lastname");
 		String email=request.getParameter("emailid");
 		String pass=request.getParameter("password");
-		
+		response.setContentType("text/html");
+
 
 		try(
 				Statement statement=connection.createStatement();){
@@ -57,6 +64,7 @@ public class AddUserServlet extends HttpServlet {
 			}else {
 				out.print("<h1>Error creating user</h1>");
 			}
+			out.print("<a href=\"index.html\">Home</a>");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +21,14 @@ public class Deleteuserservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private Connection connection;  
    
-	   public void init() {
+	   public void init(ServletConfig config) {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				connection=DriverManager.getConnection("jdbc:mysql://localhost/mydb","root","root");
+				ServletContext context=config.getServletContext();
+				String dburl = context.getInitParameter("dburl");
+				String dbuser = context.getInitParameter("dbuser");
+				String dbpass = context.getInitParameter("dbpass");
+				connection=DriverManager.getConnection(dburl,dbuser,dbpass);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -43,7 +49,7 @@ public class Deleteuserservlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String firstname =request.getParameter("firstname");
-
+		response.setContentType("text/html");
 		
 
 		try(
@@ -56,6 +62,8 @@ public class Deleteuserservlet extends HttpServlet {
 			}else {
 				out.print("<h1>Error delete user</h1>");
 			}
+			out.print("<a href=\"index.html\">Home</a>");
+
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
