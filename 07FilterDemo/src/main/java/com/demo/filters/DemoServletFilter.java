@@ -10,10 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
-/**
- * Servlet Filter implementation class DemoServlets
- */
-@WebFilter("/DemoServlets")
+@WebFilter("/DemoServlet")
 public class DemoServletFilter extends HttpFilter implements Filter {
        
     /**

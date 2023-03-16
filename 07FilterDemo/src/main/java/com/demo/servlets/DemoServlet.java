@@ -24,7 +24,7 @@ public class DemoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Date date=new Date(0);		
-		response.getWriter().append("Served at: ").append(request.getContextPath()).append(date.toString());
+		response.getWriter().append("Filter Demo Served at: ").append(request.getContextPath()).append(date.toString());
 		response.getWriter().println();
 	}
 

@@ -12,30 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DemoServlet
  */
-@WebServlet("/DemoServlet")
+@WebServlet("/demo")
 public class DemoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public DemoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Date date=new Date(0);
-		response.getWriter().append("Served at: ").append(request.getContextPath()).append;
+		response.getWriter().append("Served at: ").append(request.getContextPath()).append(date.toString());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
