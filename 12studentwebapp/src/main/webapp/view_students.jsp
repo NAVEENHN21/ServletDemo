@@ -14,14 +14,16 @@
 <th>FirstName</th>
 <th>LastName</th>
 <th>Email</th>
+<th>Delete</th>
 </tr>
 
 <c:forEach var="student" items="${student_list}">
 <tr>
-<td>${student.id}
+<td><a href="loadstudent?studentID=${student.id}" >1</a></td>
 <td>${student.firstname}</td>
 <td>${student.lastname }</td>
 <td>${student.email }</td>
+<td><a href="deletestudent?studentID=${student.id}" >Delete</a></td>
 </tr>
 </c:forEach>
 
