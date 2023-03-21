@@ -23,7 +23,7 @@
 </tr>
 <tr>
 <td>EMAILID:</td>
-<td><input name="emailid" value="${STUDENT.email}"/></td>
+<td><input name="email" value="${STUDENT.email}"/></td>
 </tr>
 <tr>
 <td></td>

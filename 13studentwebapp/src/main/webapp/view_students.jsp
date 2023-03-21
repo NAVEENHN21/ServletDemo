@@ -5,27 +5,26 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User list</title>
+<title>User List</title>
 </head>
 <body>
+
 <table border="1">
 <tr>
-<th>ID</th>
+<th>Id</th>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Email</th>
 </tr>
-
 <c:forEach var="student" items="${student_list}">
 <tr>
-<td><a href="loadstudent?studentID=${student.id}" >${student.id}</a></td>
-<td>${student.firstname}</td>
-<td>${student.lastname }</td>
+<td>${student.id}</td>
+<td>${student.firstName }</td>
+<td>${student.lastName }</td>
 <td>${student.email }</td>
-<td><a href="deletestudent?studentID=${student.id}" >Delete</a></td>
+
 </tr>
 </c:forEach>
-
 </table>
 
 </body>

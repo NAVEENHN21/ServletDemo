@@ -16,6 +16,10 @@ import javax.persistence.Table;
 	
 public class Message {
 	
+
+	
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -24,14 +28,14 @@ public class Message {
 	private String text;
 	
 	
+	
+	public Message() {
+		
+	}
 	public int getId() {
 		return id;
 	}
-	public Message(int id, String text) {
-		super();
-		this.id = id;
-		this.text = text;
-	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

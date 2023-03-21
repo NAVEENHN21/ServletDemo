@@ -38,17 +38,7 @@ public class UpdateStudentServlet extends HttpServlet {
 		}
 	}
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateStudentServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String studentId=request.getParameter("studentId");
@@ -56,7 +46,7 @@ public class UpdateStudentServlet extends HttpServlet {
 		String firstname=request.getParameter("firstname");
 		String lastname=request.getParameter("lastname");
 
-		String emailId=request.getParameter("emailId");
+		String emailId=request.getParameter("email");
 
 		studentDataUtil.updateStudent(id,firstname,lastname,emailId);
 		

@@ -47,7 +47,7 @@ public class LoadStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String studentid=request.getParameter("studentID");
+		String studentid=request.getParameter("studentId");
 		int id=Integer.parseInt(studentid);
 		
 		Student student= studentDataUtil.getStudent(id);
@@ -63,8 +63,5 @@ public class LoadStudentServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	public void deleteStudent(String studentId) {
-		
-	}
 
 }

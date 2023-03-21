@@ -160,7 +160,7 @@ public class StudentDataUtil {
 
 		try {
 			con=this.datasource.getConnection();
-			String sql="insert into student(first_name,last_name,email)" + "values()";
+			String sql="insert into student(firstname,lastname,email)" + "values()";
 			stmt=con.prepareStatement(sql);
 			stmt.setString(1,firstname);
 			stmt.setString(2,lastname);
@@ -182,7 +182,7 @@ public class StudentDataUtil {
 		try {
 			
 			con=this.datasource.getConnection();
-			String sql="update student set first_name=?,last_name=?,email=? where id=?";
+			String sql="update student set firstname=?,lastname=?,email=? where id=?";
 			stmt=con.prepareStatement(sql);
 			stmt.setInt(4, studentId);
 			stmt.setString(1, firstname);
